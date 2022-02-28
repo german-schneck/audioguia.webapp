@@ -13,14 +13,14 @@ import {
   ItemSelected,
   List,
   Item,
-  Value
+  Value,
+  Arrow
 } from './styles';
 
 function Selector({
   label,
   name,
-  options = [],
-  ...inputProps
+  options = []
 }) {
   const menuRef = useRef(null);
 
@@ -45,7 +45,11 @@ function Selector({
       <SelectorView ref={menuRef}>
         <ItemSelected onClick={handleMenuClick}>
           <Value>Audioguia Alhambra</Value>
-          <ChevronDownOutline />
+          {!!(options.length) && (
+            <Arrow>
+              <ChevronDownOutline />
+            </Arrow>
+          )}
         </ItemSelected>
         {isExpanded && (
           <List>

@@ -45,7 +45,7 @@ export const Side = styled.div`
       bottom: 0;
       content: "";
       z-index: 1;
-      background: linear-gradient(180deg, rgba(94, 0, 0, 0.57) 0%, rgba(176, 0, 0, 0.57) 100%);
+      background: linear-gradient(180deg,rgb(76 0 1 / 80%) 0%,rgb(179 0 2 / 31%) 100%);
     }
   }
 `;

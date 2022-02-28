@@ -23,7 +23,7 @@ export const SelectorView = styled.div`
 `;
 
 export const ItemSelected = styled.div`
-  padding: 12px 22px;
+  padding: 12px 14px;
   font-size: 12px;
   display: flex;
   align-items: center;
@@ -50,3 +50,8 @@ export const Item = styled.li`
 `;
 
 export const Value = styled.span``;
+
+export const Arrow = styled.span`
+  width: 22px;
+  height: 22px;
+`;
