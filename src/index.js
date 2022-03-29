@@ -1,45 +1,36 @@
 // Dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider as ReduxProvider } from 'react-redux';
 
 import {
-  BrowserRouter,
-  Routes,
-  Route
+  BrowserRouter
 } from 'react-router-dom';
 
 // Utils
 import GlobalStyle from './globalStyle';
 import reportWebVitals from './reportWebVitals';
 
-// Layouts
-import ThemeLayout from './shared/layouts/ThemeLayout';
+// Managers
+import ThemeManager from './shared/manager/ThemeManager';
+import AuthManager from './shared/manager/AuthManager';
+import ModalManager from './shared/manager/ModalManager';
 
-// Routes
-import routes from './config/routes';
-
-function App() {
-  return (
-    <Routes>
-      {routes.map((route, i) => (
-        <Route
-          key={`_route-key-${i.toString()}`}
-          exact={true}
-          {...route}
-        />
-      ))}
-    </Routes>
-  );
-}
+// Store
+import createStore from './redux/createStore';
+const store = createStore();
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeLayout>
-      <GlobalStyle />
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ThemeLayout>
+    <ReduxProvider store={store}>
+      <ThemeManager>
+        <GlobalStyle />
+        <BrowserRouter>
+          <ModalManager />
+          <AuthManager />
+        </BrowserRouter>
+      </ThemeManager>
+    </ReduxProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

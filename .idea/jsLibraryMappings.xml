@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$" libraries="{audioguia.webapp/node_modules}" />
+    <file url="file://$PROJECT_DIR$/node_modules/formik" libraries="{audioguia.webapp/node_modules}" />
+    <file url="file://$PROJECT_DIR$/node_modules/redux" libraries="{audioguia.webapp/node_modules}" />
+    <file url="file://$PROJECT_DIR$/node_modules/redux-actions" libraries="{audioguia.webapp/node_modules}" />
+    <file url="file://$PROJECT_DIR$/node_modules/redux-saga" libraries="{audioguia.webapp/node_modules}" />
+    <file url="file://$PROJECT_DIR$/node_modules/yup" libraries="{audioguia.webapp/node_modules}" />
+    <file url="PROJECT" libraries="{@types/express, @types/node, @types/react}" />
+  </component>
+</project>

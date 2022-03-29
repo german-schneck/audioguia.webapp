@@ -41,7 +41,7 @@ function Selector({
 
   return (
     <Layout>
-      <Label for={name}>{label}</Label>
+      <Label htmlFor={name}>{label}</Label>
       <SelectorView ref={menuRef}>
         <ItemSelected onClick={handleMenuClick}>
           <Value>Audioguia Alhambra</Value>

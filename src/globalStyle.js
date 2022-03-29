@@ -10,22 +10,22 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 100%;
   }
-  
+
   body {
     unicode-bidi: embed;
-    background-color: black;
+    background-color: #ffffff;
   }
-  
+
   * {
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
   }
-  
+
   ul, li, ol {
     margin: 0;
     padding: 0;
