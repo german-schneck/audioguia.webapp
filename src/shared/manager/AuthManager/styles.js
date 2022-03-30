@@ -14,5 +14,5 @@ export const SplashLayout = styled.div`
 `;
 
 export const Container = styled.div`
-  padding-top: 62px;
+  padding-top: 58px;
 `;

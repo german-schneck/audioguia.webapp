@@ -12,7 +12,7 @@ export const Layout = styled.button`
   justify-content: center;
   display: inline-flex;
   transition: all 0.2s;
-  min-width: 200px;
+  min-width: 170px;
   
   ${isMobile(`
     width: 100%;

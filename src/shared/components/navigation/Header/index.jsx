@@ -2,7 +2,7 @@
 import React, { useCallback, useMemo } from 'react';
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { Link } from 'react-router-dom';
 // Assets
 import AudioguiaLogo from '../../../assets/icons/audioguia-alhambra.icon.svg';
 
@@ -73,7 +73,10 @@ function Header() {
     <Layout>
       <Container>
         <Left>
+          <Link to={'/'}>
           <Logotype src={AudioguiaLogo} />
+          </Link>
+
         </Left>
 
         <User>
