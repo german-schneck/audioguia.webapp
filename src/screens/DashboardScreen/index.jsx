@@ -20,7 +20,7 @@ import { fetchApps } from '../../redux/flows/apps/actions';
 import { getApps, getIsLoadingApps } from '../../redux/flows/apps/selectors';
 
 // Types
-import appsIds from '../../shared/types/apps';
+import { appsIds, appStateTypesId } from '../../shared/types/apps';
 
 function DashboardScreen() {
   // State
@@ -57,7 +57,7 @@ function DashboardScreen() {
                 state={app.state}
                 title={app.name}
                 image={appsIds[app.id].image}
-                onClick={() => history.push(`/apps/${app.id}`)}
+                onClick={() => app.state === appStateTypesId.UNAVAILABLE ? null : history.push(`/apps/${app.id}`)}
               />
             ))}
           </AppList>
