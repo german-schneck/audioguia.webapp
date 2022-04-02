@@ -7,7 +7,7 @@ export const Backdrop = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(42, 42, 42, 0.1);
+  background: rgba(0, 0, 0, 0.1);
   z-index: 50;
   backdrop-filter: blur(12px);
   display: flex;
@@ -15,7 +15,9 @@ export const Backdrop = styled.div`
   align-items: center;
   transition: all 150ms linear;
   white-space: initial;
-  padding: 0 22px;
+  padding: 2em;
+  flex-direction: column;
+  width: 100%;
   
   ${({ visible }) => `
     visibility: ${visible ? 'visible' : 'hidden'};

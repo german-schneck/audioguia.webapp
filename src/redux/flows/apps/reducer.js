@@ -1,7 +1,8 @@
 // Actions
 import {
   SET_IS_LOADING_APPS,
-  SET_APPS
+  SET_APPS,
+  SET_APP_INVITATION
 } from './actions';
 
 // Utils
@@ -19,12 +20,25 @@ export default function apps(state = initialState, { type, payload }) {
         ...state,
         isLoading: payload.isLoading
       };
+
     case SET_APPS:
       return {
         ...state,
         data: {
           ...state.data,
           ...normalizeState(payload.apps, 'id')
+        }
+      };
+
+    case SET_APP_INVITATION:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          [payload.appId]: {
+            ...state.data[payload.appId],
+            invitations: payload.invitations
+          }
         }
       };
     default:

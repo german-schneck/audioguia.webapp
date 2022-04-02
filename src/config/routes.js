@@ -5,7 +5,8 @@ import React from 'react';
 import LoginScreen from '../screens/LoginScreen';
 import DashboardScreen from '../screens/DashboardScreen';
 import AppDetails from '../screens/AppDetails';
-import SalesTool from '../screens/SalesTool';
+import InvitationsScreen from '../screens/SalesTool/InvitationsScreen';
+import InviteScreen from '../screens/SalesTool/InviteScreen';
 
 // Types
 import { userRolesId } from '../shared/types/users';
@@ -42,13 +43,13 @@ const superAuthorizedRoutes = [
   {
     path: '/apps/:id/sales',
     component: () => (
-      <SalesTool />
+      <InvitationsScreen />
     )
   },
   {
     path: '/apps/:id/sales/create-accounts',
     component: () => (
-      <SalesTool />
+      <InviteScreen />
     )
   }
 ];

@@ -1,9 +1,10 @@
 // Dependencies
-import { put, call, delay, takeLatest } from 'redux-saga/effects';
+import { put, call, takeLatest } from 'redux-saga/effects';
 
 // ActionTypes
 import {
-  FETCH_APPS,
+  FETCH_APP_INVITATIONS,
+  FETCH_APPS, setAppInvitation,
 
   setApps,
   setIsLoadingApps
@@ -17,7 +18,7 @@ import { openModal } from '../ui/actions';
 import AppService from '../../../shared/services/apps';
 
 /**
- * @function fetchAuthProcess()
+ * @function fetchAppsProcess()
  * @param payload
  * @returns {Generator<*, void, *>}
  */
@@ -52,4 +53,29 @@ function * fetchAppsProcess({ payload: { id } }) {
 
 export function * watchFetchAppsProcess() {
   yield takeLatest(FETCH_APPS, fetchAppsProcess);
+}
+
+/**
+ * @function fetchAppInvitation()
+ * @param payload
+ * @returns {Generator<*, void, *>}
+ */
+function * fetchAppInvitationProcess({ payload: { appId } }) {
+  try {
+    yield put(setIsLoadingApps(true));
+    const response = yield call(AppService.getMyInvitations, appId);
+
+    if (response && response.statusCode === 200) {
+      const { data } = response;
+      yield put(setAppInvitation(appId, data));
+    }
+    yield put(setIsLoadingApps(false));
+  } catch (e) {
+    console.error(e);
+    yield put(setIsLoadingApps(false));
+  }
+}
+
+export function * watchFetchAppInvitationProcess() {
+  yield takeLatest(FETCH_APP_INVITATIONS, fetchAppInvitationProcess);
 }

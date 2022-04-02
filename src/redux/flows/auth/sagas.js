@@ -37,9 +37,6 @@ function * fetchAuthProcess() {
       if (response && response.statusCode === 200) {
         const { data } = response;
         yield put(setUser(data));
-        yield delay(3000);
-      } else {
-        // Hola
       }
     }
     yield put(setIsLoadingAuth(false));

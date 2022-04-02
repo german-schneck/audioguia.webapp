@@ -6,11 +6,13 @@ export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   background: white;
+
+  margin: 0 auto;
   
-${({ padding, maxWidth }) => `
-    width: 100%;
+  ${({ padding, alignItems, maxWidth }) => `
+    width: 100%;  
+    align-items: ${alignItems ?? 'center'};
     max-width: ${maxWidth};  
     padding: ${padding ?? '2rem'};
   `};
@@ -29,6 +31,9 @@ export const Body = styled.div`
   font-size: 14px;
   color: #303030;
   line-height: 24px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `;
 
 export const Actions = styled.div`

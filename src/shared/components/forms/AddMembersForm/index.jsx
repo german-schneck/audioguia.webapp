@@ -1,5 +1,5 @@
 // Dependencies
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useFormik } from 'formik';
 
 // Styled Components
@@ -18,6 +18,9 @@ import Button from '../../../../shared/components/buttons/Button';
 // Hooks
 import useForm from '../../../../shared/hooks/useForm';
 
+// ValidationSchema
+import validationSchema from './validationSchema';
+
 const validateEmail = (email) => {
   return String(email)
     .toLowerCase()
@@ -26,18 +29,21 @@ const validateEmail = (email) => {
     );
 };
 
-function CreateAccounts() {
+function AddMembersForm({ onSubmit }) {
   // Hooks
   const formik = useFormik({
     initialValues: {
-      emails: ''
-    }
+      input: '',
+      emails: []
+    },
+    validationSchema,
+    onSubmit
   });
 
-  const { handleChangeField } = useForm(formik);
+  const { handleChangeField, isFormValid } = useForm(formik);
 
   const emails = useMemo(() => {
-    const input = formik.values.emails;
+    const input = formik.values.input;
     const items = input.split(',');
 
     const list = items.reduce((acc, email) => {
@@ -50,18 +56,20 @@ function CreateAccounts() {
       return acc;
     }, []);
 
+    handleChangeField('emails', list);
+
     return list;
-  }, [formik.values.emails]);
+  }, [formik.values.input]);
 
   return (
-    <Form>
+    <Form onSubmit={formik.handleSubmit}>
       <Field>
         <TextInput
           label={'Dirección de emails'}
           description={'Ingresa los emails de las personas a las que deseas conceder una membresía.'}
           textarea={true}
           name={'emails'}
-          onChange={emails => handleChangeField('emails', emails)}
+          onChange={input => handleChangeField('input', input)}
         />
       </Field>
       {emails.length > 0 && (
@@ -76,11 +84,14 @@ function CreateAccounts() {
       )}
       <Field>
         <Button
+          type={'submit'}
           caption={'Crear membresías'}
+          disabled={!isFormValid}
+          isLoading={formik.isSubmitting}
         />
       </Field>
     </Form>
   );
 }
 
-export default CreateAccounts;
+export default AddMembersForm;

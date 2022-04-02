@@ -15,6 +15,7 @@ import { modalTypesId } from '../../types/ui';
 // Modals
 import ErrorModal from '../../components/modals/ids/ErrorModal';
 import AlertModal from '../../components/modals/ids/AlertModal';
+import UsersInvitationModal from '../../components/modals/ids/UsersInvitationModal';
 
 // Styles
 import { Backdrop } from './styles';
@@ -33,6 +34,14 @@ function ModalManager() {
   const renderModalById = useMemo(() => {
     const { data = null } = modal;
     switch (modal.id) {
+      case modalTypesId.USERS_INVITATIONS:
+        return (
+          <UsersInvitationModal
+            created={data.created}
+            error={data.error}
+          />
+        );
+
       case modalTypesId.ALERT:
         return (
             <AlertModal

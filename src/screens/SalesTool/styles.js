@@ -1,6 +1,5 @@
 // Dependencies
 import styled from 'styled-components';
-import { isMobile } from '../../shared/components';
 
 export const Layout = styled.div`
   background: radial-gradient(80.75% 80.75% at 50% 19.25%, #FFF5F5 0%, #FFFFFF 100%);

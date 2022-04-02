@@ -8,7 +8,10 @@ import {
 } from './flows/auth/sagas';
 
 // Apps
-import { watchFetchAppsProcess } from './flows/apps/sagas';
+import {
+  watchFetchAppInvitationProcess,
+  watchFetchAppsProcess
+} from './flows/apps/sagas';
 
 /**
  * Sagas
@@ -20,6 +23,7 @@ export default function * rootSagas() {
     watchFetchAuthProcess(),
     watchLoginUserProcess(),
 
-    watchFetchAppsProcess()
+    watchFetchAppsProcess(),
+    watchFetchAppInvitationProcess()
   ]);
 }

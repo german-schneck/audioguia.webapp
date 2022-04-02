@@ -1,4 +1,5 @@
 export const modalTypesId = {
-  ERROR: 'ERROR',
-  ALERT: 'ALERT'
+  ERROR: 'error',
+  ALERT: 'alert',
+  USERS_INVITATIONS: 'users-invitations'
 };
